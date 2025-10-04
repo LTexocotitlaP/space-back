@@ -1,4 +1,4 @@
-package mx.com.chicatanas.infrastructure.client.dto;
+package mx.com.chicatanas.application.dto;
 
 public record WeatherResponse(
         String currentTime,

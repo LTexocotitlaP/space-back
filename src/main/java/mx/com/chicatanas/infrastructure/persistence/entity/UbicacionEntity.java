@@ -21,7 +21,8 @@ public class UbicacionEntity {
     @Column(nullable = false)
     private Double longitud;
 
-    @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    // Quitamos mappedBy, FotoEntity será el dueño
+    @OneToOne(mappedBy = "ubicacion")
     private FotoEntity fotografia;
 
     public UbicacionEntity(Double latitud, Double longitud) {

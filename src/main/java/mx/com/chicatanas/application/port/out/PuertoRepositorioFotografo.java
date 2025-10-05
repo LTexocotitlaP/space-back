@@ -5,5 +5,5 @@ import java.util.Optional;
 
 public interface PuertoRepositorioFotografo {
     Fotografo save (Fotografo fotografo);
-    Optional<Fotografo> buscarFotografoPorId (Fotografo fotografo);
+    Optional<Fotografo> buscarFotografoPorId (Long id);
 }

@@ -1,6 +1,6 @@
 package mx.com.chicatanas.infrastructure.persistence.adapter;
 
-import mx.com.chicatanas.application.port.out.PuertoRepositorioFotografo;
+import mx.com.chicatanas.application.port.out.PuertoRepositorioFoto;
 import mx.com.chicatanas.domain.Foto;
 import mx.com.chicatanas.domain.Fotografo;
 import mx.com.chicatanas.domain.Ubicacion;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JpaFotoRepositoryAdapter implements PuertoRepositorioFotografo {
+public class JpaFotoRepositoryAdapter implements PuertoRepositorioFoto {
 
     private final SpringDataFotoRepository springDataFotoRepository;
 

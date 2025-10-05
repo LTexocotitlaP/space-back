@@ -17,5 +17,5 @@ public class UbicacionEntity {
     private Double longitud;
     private String direccion;
     @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.ALL)
-    private FotografiaEntity fotografia;
+    private FotoEntity fotografia;
 }

@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class FotografiaEntity {
+@AllArgsConstructor
+public class FotoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -22,4 +22,11 @@ public class FotografiaEntity {
     @OneToOne
     @JoinColumn(name = "ubicacion_id", unique = true)
     private UbicacionEntity ubicacion;
+
+    public FotoEntity(byte[] imagen, String descripcion, FotografoEntity fotografo, UbicacionEntity ubicacion) {
+        this.imagen = imagen;
+        this.descripcion = descripcion;
+        this.fotografo = fotografo;
+        this.ubicacion = ubicacion;
+    }
 }

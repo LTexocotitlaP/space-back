@@ -27,6 +27,6 @@ public class FotografoService implements
 
     @Override
     public Fotografo crearFotografo(Fotografo fotografo) {
-        return null;
+        return puertoRepositorioFotografo.save(fotografo);
     }
 }

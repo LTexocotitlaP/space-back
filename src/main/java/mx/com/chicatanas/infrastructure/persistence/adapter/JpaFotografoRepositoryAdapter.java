@@ -1,40 +1,31 @@
 package mx.com.chicatanas.infrastructure.persistence.adapter;
 
 import mx.com.chicatanas.application.port.out.PuertoRepositorioFotografo;
-import mx.com.chicatanas.domain.Foto;
 import mx.com.chicatanas.domain.Fotografo;
-import mx.com.chicatanas.domain.Ubicacion;
-import org.springframework.stereotype.Repository;
+import mx.com.chicatanas.infrastructure.persistence.entity.FotografoEntity;
+import mx.com.chicatanas.infrastructure.persistence.repository.SpringDataFotografoRepository;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 
-@Repository
+@Component
 public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo {
 
-    private final JpaFotografoRepositoryAdapter jpaFotografoRepositoryAdapter;
+    private final SpringDataFotografoRepository springDataFotografoRepository;
 
-    public JpaFotografoRepositoryAdapter(JpaFotografoRepositoryAdapter jpaFotografoRepositoryAdapter) {
-        this.jpaFotografoRepositoryAdapter = jpaFotografoRepositoryAdapter;
+    public JpaFotografoRepositoryAdapter(SpringDataFotografoRepository springDataFotografoRepository) {
+        this.springDataFotografoRepository = springDataFotografoRepository;
     }
 
     @Override
-    public Foto save(Foto fotografo) {
-        return null;
+    public Fotografo save(Fotografo fotografo) {
+        FotografoEntity fotografoEntity = new FotografoEntity(fotografo.getNombre(), fotografo.getApellido(), fotografo.getEmail());
+        FotografoEntity savedFotografo = springDataFotografoRepository.save(fotografoEntity);
+        return new Fotografo(savedFotografo.getId(), savedFotografo.getNombre(), savedFotografo.getApellido(), savedFotografo.getEmail());
     }
 
     @Override
-    public Optional<List<Foto>> getFotografias(Ubicacion ubicacion) {
+    public Optional<Fotografo> buscarFotografoPorId(Fotografo fotografo) {
         return Optional.empty();
-    }
-
-    @Override
-    public Optional<List<Foto>> buscarFotografiasPorFotografo(Fotografo fotografo) {
-        return Optional.empty();
-    }
-
-    @Override
-    public void eliminarFotografia(Foto foto) {
-
     }
 }

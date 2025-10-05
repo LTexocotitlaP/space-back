@@ -19,5 +19,11 @@ public class FotografoEntity {
     private String apellido;
     private String email;
     @OneToMany(mappedBy = "fotografo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<FotografiaEntity> fotografias;
+    private List<FotoEntity> fotografias;
+
+    public FotografoEntity(String nombre, String apellido, String email) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+    }
 }

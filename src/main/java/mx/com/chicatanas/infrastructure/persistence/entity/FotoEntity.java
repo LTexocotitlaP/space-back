@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class FotoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Lob
@@ -25,8 +25,8 @@ public class FotoEntity {
     @JoinColumn(name = "fotografo_id")
     private FotografoEntity fotografo;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "ubicacion_id", nullable = false)
+    @OneToOne(optional = false, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "ubicacion_id", nullable = false) // ahora no puede ser null
     private UbicacionEntity ubicacion;
 
     public FotoEntity(byte[] imagen, UbicacionEntity ubicacion) {

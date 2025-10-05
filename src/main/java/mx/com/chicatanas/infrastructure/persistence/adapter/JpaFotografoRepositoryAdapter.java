@@ -19,7 +19,6 @@ public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo
 
     @Override
     public Fotografo save(Fotografo fotografo) {
-        System.out.println("entro al adapter");
         FotografoEntity fotografoEntity = new FotografoEntity(fotografo.getNombre(), fotografo.getApellido(), fotografo.getEmail());
         FotografoEntity savedFotografo = springDataFotografoRepository.save(fotografoEntity);
         return new Fotografo(savedFotografo.getId(), savedFotografo.getNombre(), savedFotografo.getApellido(), savedFotografo.getEmail());

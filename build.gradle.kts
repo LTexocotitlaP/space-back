@@ -21,5 +21,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-docker-compose")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.3.0")
     implementation("org.postgresql:postgresql")
+    implementation("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 
 }

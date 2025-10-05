@@ -10,23 +10,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FotoEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Lob
+    @Column(nullable = false)
     private byte[] imagen;
+
     private String descripcion;
-    @ManyToOne(optional = true)
-    @JoinColumn(name = "fotografo_id", nullable = true)
+
+    @ManyToOne
+    @JoinColumn(name = "fotografo_id")
     private FotografoEntity fotografo;
-    @OneToOne
-    @JoinColumn(name = "ubicacion_id", unique = true)
+
+    @OneToOne(optional = false)
+    @JoinColumn(name = "ubicacion_id", nullable = false)
     private UbicacionEntity ubicacion;
 
-    public FotoEntity(byte[] imagen, String descripcion, FotografoEntity fotografo, UbicacionEntity ubicacion) {
+    public FotoEntity(byte[] imagen, UbicacionEntity ubicacion) {
         this.imagen = imagen;
-        this.descripcion = descripcion;
-        this.fotografo = fotografo;
         this.ubicacion = ubicacion;
     }
 }

@@ -4,11 +4,11 @@ import mx.com.chicatanas.application.port.out.PuertoRepositorioFotografo;
 import mx.com.chicatanas.domain.Fotografo;
 import mx.com.chicatanas.infrastructure.persistence.entity.FotografoEntity;
 import mx.com.chicatanas.infrastructure.persistence.repository.SpringDataFotografoRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Component
+@Repository
 public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo {
 
     private final SpringDataFotografoRepository springDataFotografoRepository;

@@ -1,44 +1,21 @@
 package mx.com.chicatanas.domain;
 
-import java.awt.*;
-
 public class Foto {
 
     private Long id;
-    private Image imagen;
+    private byte[] imagen;
     private String descripcion;
     private Fotografo fotografo;
     private Ubicacion ubicacion;
 
-    public Foto() {}
-
-    public Foto(Long id) {
-        this.id = id;
-    }
-
-    public Foto(Long id, Image imagen) {
+    public Foto(Long id, byte[] imagen, Ubicacion ubicacion) {
         this.id = id;
         this.imagen = imagen;
+        this.ubicacion = ubicacion;
     }
 
-    public Foto(Long id, Image imagen, String descripcion) {
-        this.id = id;
+    public Foto(byte[] imagen, Ubicacion ubicacion) {
         this.imagen = imagen;
-        this.descripcion = descripcion;
-    }
-
-    public Foto(Long id, Image imagen, String descripcion, Fotografo fotografo) {
-        this.id = id;
-        this.imagen = imagen;
-        this.descripcion = descripcion;
-        this.fotografo = fotografo;
-    }
-
-    public Foto(Long id, Image imagen, String descripcion, Fotografo fotografo, Ubicacion ubicacion) {
-        this.id = id;
-        this.imagen = imagen;
-        this.descripcion = descripcion;
-        this.fotografo = fotografo;
         this.ubicacion = ubicacion;
     }
 
@@ -46,7 +23,7 @@ public class Foto {
         return id;
     }
 
-    public Image getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 

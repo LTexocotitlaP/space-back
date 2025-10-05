@@ -7,15 +7,25 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class UbicacionEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private Double latitud;
+
+    @Column(nullable = false)
     private Double longitud;
-    private String direccion;
-    @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.ALL)
+
+    @OneToOne(mappedBy = "ubicacion", cascade = CascadeType.ALL, orphanRemoval = true)
     private FotoEntity fotografia;
+
+    public UbicacionEntity(Double latitud, Double longitud) {
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
 }

@@ -2,7 +2,8 @@ package mx.com.chicatanas.application.service;
 
 import mx.com.chicatanas.application.port.in.CasoUsoBuscarFoto;
 import mx.com.chicatanas.application.port.in.CasoUsoEliminarFoto;
-import mx.com.chicatanas.application.port.in.CasoUsoGuardarFoto;
+import mx.com.chicatanas.application.port.in.CasoUsoSubirFoto;
+import mx.com.chicatanas.application.port.in.CasoUsoTomarFoto;
 import mx.com.chicatanas.application.port.out.PuertoRepositorioFoto;
 import mx.com.chicatanas.domain.Foto;
 import mx.com.chicatanas.domain.Fotografo;
@@ -11,7 +12,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FotoService implements
-        CasoUsoGuardarFoto,
+        CasoUsoSubirFoto,
+        CasoUsoTomarFoto,
         CasoUsoBuscarFoto,
         CasoUsoEliminarFoto
 {
@@ -21,6 +23,7 @@ public class FotoService implements
     public FotoService(PuertoRepositorioFoto puertoRepositorioFoto) {
         this.puertoRepositorioFoto = puertoRepositorioFoto;
     }
+
 
     @Override
     public Foto buscarFotoPorUbicacion(Ubicacion ubicacion) {
@@ -38,12 +41,12 @@ public class FotoService implements
     }
 
     @Override
-    public Foto crearFotoSinFotografo(Foto foto, Ubicacion ubicacion) {
+    public Foto subirFoto(Foto foto) {
         return null;
     }
 
     @Override
-    public Foto crearFoto(Foto foto, Fotografo fotografo, Ubicacion ubicacion) {
+    public Foto tomarFoto(Foto foto) {
         return null;
     }
 }

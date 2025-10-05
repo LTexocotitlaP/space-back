@@ -4,18 +4,19 @@ import mx.com.chicatanas.application.port.out.PuertoRepositorioFotografo;
 import mx.com.chicatanas.domain.Foto;
 import mx.com.chicatanas.domain.Fotografo;
 import mx.com.chicatanas.domain.Ubicacion;
+import mx.com.chicatanas.infrastructure.persistence.repository.SpringDataFotoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo {
+public class JpaFotoRepositoryAdapter implements PuertoRepositorioFotografo {
 
-    private final JpaFotografoRepositoryAdapter jpaFotografoRepositoryAdapter;
+    private final SpringDataFotoRepository springDataFotoRepository;
 
-    public JpaFotografoRepositoryAdapter(JpaFotografoRepositoryAdapter jpaFotografoRepositoryAdapter) {
-        this.jpaFotografoRepositoryAdapter = jpaFotografoRepositoryAdapter;
+    public JpaFotoRepositoryAdapter(SpringDataFotoRepository springDataFotoRepository) {
+        this.springDataFotoRepository = springDataFotoRepository;
     }
 
     @Override

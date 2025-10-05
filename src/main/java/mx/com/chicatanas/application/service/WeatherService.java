@@ -1,14 +1,13 @@
 package mx.com.chicatanas.application.service;
 
+import mx.com.chicatanas.application.dto.WeatherRequest;
 import mx.com.chicatanas.application.dto.WeatherResponse;
 import mx.com.chicatanas.application.port.in.CasoUsoConsultarClima;
-import mx.com.chicatanas.application.port.in.CasoUsoCrearFotografo;
 import mx.com.chicatanas.application.port.out.PuertoFeignClima;
-import mx.com.chicatanas.domain.Fotografia;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WeatherService implements CasoUsoCrearFotografo, CasoUsoConsultarClima {
+public class WeatherService implements CasoUsoConsultarClima {
 
     private final PuertoFeignClima puertoFeignClima;
 
@@ -17,12 +16,7 @@ public class WeatherService implements CasoUsoCrearFotografo, CasoUsoConsultarCl
     }
 
     @Override
-    public WeatherResponse consultarClima(Long longitud, Long latitud) {
-        return null;
-    }
-
-    @Override
-    public Fotografia crearFotografo(Fotografia fotografo) {
-        return null;
+    public WeatherResponse consultarClima(WeatherRequest weatherRequest) {
+        return puertoFeignClima.getWeatherByCity(weatherRequest);
     }
 }

@@ -1,9 +1,8 @@
 package mx.com.chicatanas.application.port.in;
 
+import mx.com.chicatanas.application.dto.WeatherRequest;
 import mx.com.chicatanas.application.dto.WeatherResponse;
 
 public interface CasoUsoConsultarClima {
-
-    WeatherResponse consultarClima(Long longitud, Long latitud);
-
+    WeatherResponse consultarClima(WeatherRequest weatherRequest);
 }

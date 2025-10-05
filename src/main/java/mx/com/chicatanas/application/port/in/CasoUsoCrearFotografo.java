@@ -1,9 +1,7 @@
 package mx.com.chicatanas.application.port.in;
 
-import mx.com.chicatanas.domain.Fotografia;
+import mx.com.chicatanas.domain.Fotografo;
 
 public interface CasoUsoCrearFotografo {
-
-    Fotografia crearFotografo(Fotografia fotografo);
-
+    Fotografo crearFotografo(Fotografo fotografo);
 }

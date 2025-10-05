@@ -4,11 +4,11 @@ import mx.com.chicatanas.application.port.out.PuertoRepositorioFotografo;
 import mx.com.chicatanas.domain.Fotografo;
 import mx.com.chicatanas.infrastructure.persistence.entity.FotografoEntity;
 import mx.com.chicatanas.infrastructure.persistence.repository.SpringDataFotografoRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Component
+@Repository
 public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo {
 
     private final SpringDataFotografoRepository springDataFotografoRepository;
@@ -19,13 +19,15 @@ public class JpaFotografoRepositoryAdapter implements PuertoRepositorioFotografo
 
     @Override
     public Fotografo save(Fotografo fotografo) {
+        System.out.println("entro al adapter");
         FotografoEntity fotografoEntity = new FotografoEntity(fotografo.getNombre(), fotografo.getApellido(), fotografo.getEmail());
         FotografoEntity savedFotografo = springDataFotografoRepository.save(fotografoEntity);
         return new Fotografo(savedFotografo.getId(), savedFotografo.getNombre(), savedFotografo.getApellido(), savedFotografo.getEmail());
     }
 
     @Override
-    public Optional<Fotografo> buscarFotografoPorId(Fotografo fotografo) {
-        return Optional.empty();
+    public Optional<Fotografo> buscarFotografoPorId(Long id) {
+        final FotografoEntity fotografoEntity = springDataFotografoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Fotografo no encontrado"));
+        return Optional.of(new Fotografo(fotografoEntity.getId(), fotografoEntity.getNombre(), fotografoEntity.getEmail()));
     }
 }

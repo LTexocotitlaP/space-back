@@ -21,8 +21,8 @@ public class FotografoService implements
     }
 
     @Override
-    public Optional<Fotografo> buscarFotografo(Fotografo fotografo) {
-        return Optional.empty();
+    public Optional<Fotografo> buscarFotografo(Long id) {
+        return puertoRepositorioFotografo.buscarFotografoPorId(id);
     }
 
     @Override

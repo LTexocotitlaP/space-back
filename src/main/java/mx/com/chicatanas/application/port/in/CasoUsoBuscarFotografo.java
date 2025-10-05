@@ -5,5 +5,5 @@ import mx.com.chicatanas.domain.Fotografo;
 import java.util.Optional;
 
 public interface CasoUsoBuscarFotografo {
-    Optional<Fotografo> buscarFotografo(Fotografo fotografo);
+    Optional<Fotografo> buscarFotografo(Long id);
 }
